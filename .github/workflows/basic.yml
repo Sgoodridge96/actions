@@ -1,0 +1,12 @@
+name: say hello
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  greet:
+    name: say hello to the user
+    runs-on: ubuntu-latest
+    steps: #(each - is considered a list)
+      - name: Run echo
+        run: echo "Hello World"
