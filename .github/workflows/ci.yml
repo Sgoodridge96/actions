@@ -1,0 +1,31 @@
+name: Proper CI
+
+on:
+  push:
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ununtu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and npm
+        uses: actions/setup-node@v4
+
+      - run: npm install
+
+      - run: npm test 
+      - run: npm typecheck
+      
+
+lint:
+  name: Run linter
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+    - run: npm install
+    - run: npm run eslint
+  
